@@ -1,0 +1,156 @@
+
+<app-header [isUserLoggedin]='isUserLoggedin' [LoggedinUserName]='LoggedinUserName' ></app-header><div class="row"><div class="col-md-1"></div><div class="col-md-10">
+    <div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+  
+    <div class="card-body">
+  
+  <form novalidate style="padding:30px;background-color: whitesmoke"  
+          (ngSubmit)="saveCvdlearncheck()"
+          [formGroup]="CvdlearncheckForm">
+
+          <div class="form-group row mb-2">
+              <label class="col-md-2 col-form-label"
+                     for="NameId">Name</label>
+              <div class="col-md-8">
+                <input class="form-control"
+                       id="NameId"
+                       type="text"
+                       placeholder="Name (required)"
+                       formControlName="Name"
+                       [ngClass]="{'is-invalid': displayMessage.Name}" />
+                <span class="invalid-feedback">
+                  {{displayMessage.Name}}
+                </span>
+              </div>
+            </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="StatusId">Status</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="StatusId"
+                 type="text"
+                 placeholder="Status (required)"
+                 formControlName="Status"
+                 [ngClass]="{'is-invalid': displayMessage.Status}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Status}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="TotalquesId">Questions</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="TotalquesId"
+                 type="text"
+                 placeholder="Total Questions (required)"
+                 formControlName="Totalques"
+                 [ngClass]="{'is-invalid': displayMessage.Totalques}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Totalques}}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="CorrectAnsId">Answer</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="CorrectAnsId"
+                 type="text"
+                 placeholder="Correct Answer (required)"
+                 formControlName="CorrectAns"
+                 [ngClass]="{'is-invalid': displayMessage.CorrectAns}" />
+          <span class="invalid-feedback">
+            {{displayMessage.CorrectAns}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2" >
+      <label class="col-md-2 col-form-label"
+      for="FCvduserId" >Select User</label>
+      <div class="col-sm-8">
+      <select class="form-control" id="FCvduserId" formControlName="FCvduserId" 
+      [ngClass]="{'is-invalid': displayMessage.FCvduserId}">
+      <option [value]='0' selected>Select User...</option>"
+      <option *ngFor="let lstCvduser of CvduserList"
+      [value]="lstCvduser.id">{{lstCvduser.Name}}</option>
+      </select>
+      <span class="invalid-feedback">
+      {{displayMessage.FCvduserId}}
+      </span>
+      </div>
+      </div>
+
+      <div class="form-group row mb-2" >
+      <label class="col-md-2 col-form-label"
+      for="FCvdquestionId" >Select Question</label>
+      <div class="col-sm-8">
+      <select class="form-control" id="FCvdquestionId" formControlName="FCvdquestionId" 
+      [ngClass]="{'is-invalid': displayMessage.FCvdquestionId}">
+      <option [value]='0' selected>Select Question...</option>"
+      <option *ngFor="let lstCvdquestion of CvdquestionList"
+      [value]="lstCvdquestion.id">{{lstCvdquestion.Name}}</option>
+      </select>
+      <span class="invalid-feedback">
+      {{displayMessage.FCvdquestionId}}
+      </span>
+      </div>
+      </div>
+
+      <div class="form-group row mb-2" >
+      <label class="col-md-2 col-form-label"
+      for="FCvdcourseId" >Select Course</label>
+      <div class="col-sm-8">
+      <select class="form-control" id="FCvdcourseId" formControlName="FCvdcourseId" 
+      [ngClass]="{'is-invalid': displayMessage.FCvdcourseId}">
+      <option [value]='0' selected>Select Course...</option>"
+      <option *ngFor="let lstCvdcourse of CvdcourseList"
+      [value]="lstCvdcourse.id">{{lstCvdcourse.Name}}</option>
+      </select>
+      <span class="invalid-feedback">
+      {{displayMessage.FCvdcourseId}}
+      </span>
+      </div>
+      </div>
+      
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="CvdlearncheckForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!CvdlearncheckForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/Cvdlearnchecks']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete"
+                  (click)="DeleteConfirmation()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div></div>
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>
+</div>
+

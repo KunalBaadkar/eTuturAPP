@@ -1,0 +1,61 @@
+<app-header [isUserLoggedin]="false"></app-header><div class="row"><div class="col-md-1"></div><div class="col-md-10">
+<br><br><br>
+
+<div class="row">
+       <div class="col-md-2"></div>
+       <div class="col-md-8" style="background-color: lightgray">
+              <br>
+              <hr><br>
+                 
+  <form novalidate style="padding:30px;background-color: whitesmoke" (ngSubmit)="saveLogin()" [formGroup]="LoginForm">
+                     <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="UserNameId">User Name</label>
+                            <div class="col-md-8">
+                                   <input class="form-control" id="UserNameId" type="text"
+                                          placeholder="User Name (required)" formControlName="UserName"
+                                          [ngClass]="{'is-invalid': displayMessage.UserName}" />
+                                   <span class="invalid-feedback">
+                                          {{displayMessage.UserName}}
+                                   </span>
+                            </div>
+                     </div>
+                     <div class="form-group row mb-2">
+                            <label class="col-md-2 col-form-label" for="PasswordId">Password</label>
+                            <div class="col-md-8">
+                                   <input class="form-control" id="PasswordId" type="password"
+                                          placeholder="Password (required)" formControlName="Password"
+                                          [ngClass]="{'is-invalid': displayMessage.Password}" />
+                                   <span class="invalid-feedback">
+                                          {{displayMessage.Password}}
+                                   </span>
+                            </div>
+                     </div>
+                     <div class="form-group row mb-2 offset-md-8 col-md-4">
+                            <div class="help-block text-right"><a href="/forgotpasswords">Forget the password ?</a>
+                            </div>
+                     </div>
+                     <div class="form-group row mb-2">
+                            <div class="offset-md-2 col-md-4">
+                                   <hr><button class="btn btn-primary mr-3" style="width:80px;" type ="submit"
+                                          [title]="LoginForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                                          [disabled]="!LoginForm.valid">
+                                          Sign in
+                                   </button>
+                                   <button class="btn btn-outline-secondary mr-3" style="width:80px;" type="button"
+                                          title="Cancel your edits" (click)="Cancel()">
+                                          Cancel
+                                   </button>
+                            </div>
+                     </div>
+
+                     <div class="checkbox  row mb-2 offset-md-2 col-md-4"><label><input type="checkbox"> keep me
+                                   logged-in</label>
+                     </div>
+                     <div class="bottom text-center">New here ?<a href="/registers"><b>Join Us</b></a></div>
+
+
+              </form>
+
+       </div>
+</div>
+

@@ -1,0 +1,82 @@
+
+<app-header [isUserLoggedin]='isUserLoggedin' [LoggedinUserName]='LoggedinUserName' ></app-header><div class="row"><div class="col-md-1"></div><div class="col-md-10">
+
+    <div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+  
+    <div class="card-body">
+  
+  <form novalidate style="padding:30px;background-color: whitesmoke"  
+          (ngSubmit)="saveCvdclasse()"
+          [formGroup]="CvdclasseForm">
+          
+          <div class="form-group row mb-2">
+              <label class="col-md-2 col-form-label"
+                     for="NameId">Name</label>
+              <div class="col-md-8">
+                <input class="form-control"
+                       id="NameId"
+                       type="text"
+                       placeholder="Name (required)"
+                       formControlName="Name"
+                       [ngClass]="{'is-invalid': displayMessage.Name}" />
+                <span class="invalid-feedback">
+                  {{displayMessage.Name}}
+                </span>
+              </div>
+            </div>
+      <div class="form-group row mb-2" >
+      <label class="col-md-2 col-form-label"
+      for="FCvdlevelId" >Select Level</label>
+      <div class="col-sm-8">
+      <select class="form-control" id="FCvdlevelId" formControlName="FCvdlevelId" 
+      [ngClass]="{'is-invalid': displayMessage.FCvdlevelId}">
+      <option [value]='0' selected>Select Level...</option>"
+      <option *ngFor="let lstCvdlevel of CvdlevelList"
+      [value]="lstCvdlevel.id">{{lstCvdlevel.Name}}</option>
+      </select>
+      <span class="invalid-feedback">
+      {{displayMessage.FCvdlevelId}}
+      </span>
+      </div>
+      </div>
+
+            
+
+      
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="CvdclasseForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!CvdclasseForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/Cvdclasses']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete"
+                  (click)="DeleteConfirmation()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+</div></div>
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>
+</div>
+

@@ -1,0 +1,87 @@
+<app-header [isUserLoggedin]="false"></app-header>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <br><br><br>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+
+        <div class="jumbotron">
+          <h4>Registration Page</h4>
+          <hr>
+          <br>
+          <div class="form-group">
+                
+  <form novalidate style="padding:30px;background-color: whitesmoke" (ngSubmit)="saveCvduser()"
+              [formGroup]="CvduserForm">
+              <div class="form-group row mb-2">
+                <label class="col-md-3 col-form-label" for="NameId">Name</label>
+                <div class="col-md-8">
+                  <input class="form-control" id="NameId" type="text" placeholder="Name (required)"
+                    formControlName="Name" [ngClass]="{'is-invalid': displayMessage.Name}" />
+                  <span class="invalid-feedback">
+                    {{displayMessage.Name}}
+                  </span>
+                </div>
+              </div>
+              <div class="form-group row mb-2">
+                <label class="col-md-3 col-form-label" for="EmailAddressId">Email Address</label>
+                <div class="col-md-8">
+                  <input class="form-control" id="EmailAddressId" type="email" placeholder="Email Address (required)"
+                    formControlName="EmailAddress" [ngClass]="{'is-invalid': displayMessage.EmailAddress}" />
+                  <span class="invalid-feedback">
+                    {{displayMessage.EmailAddress}}
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group row mb-2">
+                <label class="col-md-3 col-form-label" for="PasswordId">Password</label>
+                <div class="col-md-8">
+                  <input class="form-control" id="PasswordId" type="password" placeholder="Password (required)"
+                    formControlName="Password" [ngClass]="{'is-invalid': displayMessage.Password}" />
+                  <span class="invalid-feedback">
+                    {{displayMessage.Password}}
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="form-group row mb-2">
+                <label class="col-md-3 col-form-label" for="MobileNoId">Mobile</label>
+                <div class="col-md-8">
+                  <input class="form-control" id="MobileNoId" type="text" placeholder="Mobile Number (required)"
+                    formControlName="MobileNo" [ngClass]="{'is-invalid': displayMessage.MobileNo}" />
+                  <span class="invalid-feedback">
+                    {{displayMessage.MobileNo}}
+                  </span>
+                </div>
+              </div>
+
+              <input type="radio" value="teacher" name="userrole" formControlName="userrole" > Teacher
+              <input type="radio" value="student" name="userrole" formControlName="userrole"> Student
+            </form>
+            <br>
+            <hr>
+        
+
+
+
+
+            <div class="row">
+              <div class="col-md-3">
+                <button type="submit" class="btn btn-primary btn-block" (click)="NavigateToLanding()">register</button>
+              </div>
+              <div class="col-md-3">
+                <button type="button" class="btn btn-primary btn-block" (click)="Cancel()">Cancel</button>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+      </div>
+    </div>    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
+    </div>

@@ -1,0 +1,73 @@
+
+<app-header [isUserLoggedin]='isUserLoggedin' [LoggedinUserName]='LoggedinUserName' ></app-header><div class="row"><div class="col-md-1"></div><div class="col-md-10">
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text"
+               [(ngModel)]="listFilter" />
+      </div>
+<div class="col-md-3"></div>
+<div class="col-md-2">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+              <button class="btn btn-outline-primary btn-sm"
+              [routerLink]="['/Cvdsubscriptions', 0, 'edit']">
+        Add Subscription
+      </button>
+       </div>
+   </div>
+</div>
+    </div>
+    <div class="row"
+         *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table mb-0"
+             *ngIf="CvdsubscriptionList && CvdsubscriptionList.length">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let itrCvdsubscription of filteredCvdsubscriptions">
+            <td>
+              <a [routerLink]="['/Cvdsubscriptions', itrCvdsubscription.id]">
+                {{ itrCvdsubscription.Name }}
+              </a>
+            </td>
+            <td>{{ itrCvdsubscription.Description }}</td>
+            <td>{{ itrCvdsubscription.Price }}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/Cvdsubscriptions', itrCvdsubscription.id, 'edit']">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="errorMessage"
+     class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>
+</div>
+</div>

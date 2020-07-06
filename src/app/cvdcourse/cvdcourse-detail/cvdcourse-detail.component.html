@@ -1,0 +1,52 @@
+
+<app-header [isUserLoggedin]='isUserLoggedin' [LoggedinUserName]='LoggedinUserName' ></app-header><div class="row"><div class="col-md-1"></div><div class="col-md-10">
+<div class="card">
+  <div class="card-header"
+       *ngIf="objCvdcourse">
+    {{pageTitle + ": " + objCvdcourse.Name}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="objCvdcourse">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">Name</div>
+          <div class="col-md-6">{{ objCvdcourse.Name }}</div>
+        </div>
+           
+      <div class="row">
+        <div class="col-md-3">Description</div>
+        <div class="col-md-6">{{ objCvdcourse.Description }}</div>
+      </div>
+      <div class="row"><div class="col-md-3">Duration Hour</div><div class="col-md-6">{{ objCvdcourse.DurationHr }}</div></div>
+      <div class="row"><div class="col-md-3">Duration Minute</div><div class="col-md-6">{{ objCvdcourse.DurationMin }}</div></div>
+      <div class="row"><div class="col-md-3">CvdclasseName</div><div class="col-md-6">{{ objCvdcourse.CvdclasseName }}</div></div>
+    </div>
+  </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/Cvdcourses', objCvdcourse.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>
+</div>
+</div>
+

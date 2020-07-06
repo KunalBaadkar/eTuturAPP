@@ -1,0 +1,77 @@
+
+<app-header [isUserLoggedin]='isUserLoggedin' [LoggedinUserName]='LoggedinUserName' ></app-header><div class="row"><div class="col-md-1"></div><div class="col-md-10">
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text"
+               [(ngModel)]="listFilter" />
+      </div>
+<div class="col-md-3"></div>
+<div class="col-md-2">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+              <button class="btn btn-outline-primary btn-sm"
+              [routerLink]="['/Cvdusers', 0, 'edit']">
+        Add User
+      </button>
+       </div>
+   </div>
+</div>
+    </div>
+    <div class="row"
+         *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table mb-0"
+             *ngIf="CvduserList && CvduserList.length">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email Address</th>
+            <th>Mobile No</th>
+            <th>Password</th>
+            <th>Role Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let itrCvduser of filteredCvdusers">
+            <td>
+              <a [routerLink]="['/Cvdusers', itrCvduser.id]">
+                {{ itrCvduser.Name }}
+              </a>
+            </td>
+            <td>{{ itrCvduser.EmailAddress }}</td>
+            <td>{{ itrCvduser.MobileNo }}</td>
+            <td>{{ itrCvduser.Password }}</td>
+            <td>{{ itrCvduser.CvdroleName }}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/Cvdusers', itrCvduser.id, 'edit']">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="errorMessage"
+     class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>
+</div>
+</div>
