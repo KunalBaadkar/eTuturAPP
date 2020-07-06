@@ -86,6 +86,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+              "src/Staticfile"
             ],
             "styles": [
               "src/styles.css"
