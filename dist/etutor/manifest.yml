@@ -1,6 +1,0 @@
----
-applications :
-- name: "etutor"
-  path : "dist/etutor"
-  memory : 256M
-  buildpack : staticfile-buildpack
