@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HashLocationStrategy, LocationStrategy} from '@angular/common';
+
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -68,6 +70,7 @@ import { CvdusersubscriptionEditComponent } from './cvdusersubscription/cvdusers
 import { CvdcoursestatuListComponent } from './cvdcoursestatu/cvdcoursestatu-list/cvdcoursestatu-list.component';
 import { CvdcoursestatuDetailComponent } from './cvdcoursestatu/cvdcoursestatu-detail/cvdcoursestatu-detail.component';
 import { CvdcoursestatuEditComponent } from './cvdcoursestatu/cvdcoursestatu-edit/cvdcoursestatu-edit.component';
+
 
 
 @NgModule({
@@ -286,7 +289,7 @@ import { CvdcoursestatuEditComponent } from './cvdcoursestatu/cvdcoursestatu-edi
 
     ]),
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
