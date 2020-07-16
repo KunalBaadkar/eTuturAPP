@@ -1,7 +1,7 @@
 import { Cvduser } from '../models/cvduser';
 
 export class appconstants {
-    public static url: string = "https://etutorquizapp.eu-gb.cf.appdomain.cloud/api/";
+    public static url: string = "https://etutorapi.eu-gb.mybluemix.net/api/";
     public static gblisUserLoggedin: boolean = false;
     public static gblLoggedinUserName: string;
     public static gblLoggedinUserId: number;
