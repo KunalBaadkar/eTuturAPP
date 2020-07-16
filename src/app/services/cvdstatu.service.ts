@@ -14,7 +14,7 @@ export class CvdstatuService {
   constructor(private http: HttpClient) { }
 
  getAllCvdstatu(): Observable<Cvdstatu[]> {
- return this.http.get<Cvdstatu[]>(appconstants.url + "Cvdstatus")
+ return this.http.get<Cvdstatu[]>(appconstants.url + "Cvdstatuss")
  .pipe(
  tap(data => console.log(JSON.stringify(data))),
  catchError(this.handleError)
@@ -25,7 +25,7 @@ export class CvdstatuService {
  if (id === 0) {
  return of(this.initializeCvdstatu());
  }
- const url = appconstants.url + "Cvdstatus/" + id;
+ const url = appconstants.url + "Cvdstatuss/" + id;
  return this.http.get<Cvdstatu>(url)
  .pipe(
  tap(data => console.log('getCvdstatu: ' + JSON.stringify(data))),
@@ -35,7 +35,7 @@ export class CvdstatuService {
 
  createCvdstatu(objCvdstatu: Cvdstatu): Observable<Cvdstatu> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- return this.http.post<Cvdstatu>(appconstants.url + "Cvdstatus/", objCvdstatu, { headers })
+ return this.http.post<Cvdstatu>(appconstants.url + "Cvdstatuss/", objCvdstatu, { headers })
  .pipe(
  tap(data => console.log('createCvdstatu: ' + JSON.stringify(data))),
  catchError(this.handleError)
@@ -44,7 +44,7 @@ export class CvdstatuService {
 
  updateCvdstatu(objCvdstatu: Cvdstatu): Observable<Cvdstatu> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- const url = appconstants.url + "Cvdstatus/" + objCvdstatu.id;
+ const url = appconstants.url + "Cvdstatuss/" + objCvdstatu.id;
  return this.http.put<Cvdstatu>(url, objCvdstatu, { headers })
  .pipe(
  tap(() => console.log('updateCvdstatu: ' + objCvdstatu.id)),
@@ -55,7 +55,7 @@ export class CvdstatuService {
 
  deleteCvdstatu(id: number): Observable<{}> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- const url = appconstants.url + "Cvdstatus/" + id;
+ const url = appconstants.url + "Cvdstatuss/" + id;
  return this.http.delete<Cvdstatu>(url, { headers })
  .pipe(
  tap(data => console.log('deleteCvdstatu: ' + id)),
