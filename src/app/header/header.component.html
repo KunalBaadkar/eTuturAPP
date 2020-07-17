@@ -77,9 +77,7 @@
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
                                     [routerLink]="['/Cvdcoursestatus']">coursestatus</a>
                               </li>
-                              <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdlearnchecks']">learncheck</a>
-                              </li>
+                             
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
                                     [routerLink]="['/Cvdoptions']">option</a>
                               </li>
@@ -96,6 +94,9 @@
                   <li class="navelement">
                       <a *ngIf="lclFProjroleId <= 4">Student</a>
                       <ul class="nav-dropdown" *ngIf="lclFProjroleId <= 4">
+                         <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+                                    [routerLink]="['/Cvdlearnchecks']">learncheck</a>
+                              </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
                                     [routerLink]="['/Cvddiscussions']">discussion</a>
                               </li>
