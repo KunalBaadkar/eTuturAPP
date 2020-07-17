@@ -14,7 +14,7 @@ export class CvdclasseService {
   constructor(private http: HttpClient) { }
 
  getAllCvdclasse(): Observable<Cvdclasse[]> {
- return this.http.get<Cvdclasse[]>(appconstants.url + "Cvdclasses")
+ return this.http.get<Cvdclasse[]>(appconstants.url + "Cvdclasss")
  .pipe(
  tap(data => console.log(JSON.stringify(data))),
  catchError(this.handleError)
@@ -25,7 +25,7 @@ export class CvdclasseService {
  if (id === 0) {
  return of(this.initializeCvdclasse());
  }
- const url = appconstants.url + "Cvdclasses/" + id;
+ const url = appconstants.url + "Cvdclasss/" + id;
  return this.http.get<Cvdclasse>(url)
  .pipe(
  tap(data => console.log('getCvdclasse: ' + JSON.stringify(data))),
@@ -35,7 +35,7 @@ export class CvdclasseService {
 
  createCvdclasse(objCvdclasse: Cvdclasse): Observable<Cvdclasse> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- return this.http.post<Cvdclasse>(appconstants.url + "Cvdclasses/", objCvdclasse, { headers })
+ return this.http.post<Cvdclasse>(appconstants.url + "Cvdclasss/", objCvdclasse, { headers })
  .pipe(
  tap(data => console.log('createCvdclasse: ' + JSON.stringify(data))),
  catchError(this.handleError)
@@ -44,7 +44,7 @@ export class CvdclasseService {
 
  updateCvdclasse(objCvdclasse: Cvdclasse): Observable<Cvdclasse> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- const url = appconstants.url + "Cvdclasses/" + objCvdclasse.id;
+ const url = appconstants.url + "Cvdclasss/" + objCvdclasse.id;
  return this.http.put<Cvdclasse>(url, objCvdclasse, { headers })
  .pipe(
  tap(() => console.log('updateCvdclasse: ' + objCvdclasse.id)),
@@ -55,7 +55,7 @@ export class CvdclasseService {
 
  deleteCvdclasse(id: number): Observable<{}> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- const url = appconstants.url + "Cvdclasses/" + id;
+ const url = appconstants.url + "Cvdclasss/" + id;
  return this.http.delete<Cvdclasse>(url, { headers })
  .pipe(
  tap(data => console.log('deleteCvdclasse: ' + id)),
