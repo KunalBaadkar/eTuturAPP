@@ -16,9 +16,13 @@ export class CvduserListComponent implements OnInit {
    isUserLoggedin: boolean;
    LoggedinUserName: string;
    constructor(private objCvdroleService: CvdroleService, private objCvduserService: CvduserService, private router: Router) { }
-   ngOnInit() {appconstants.gblisUserLoggedin =true;
-      if (!appconstants.gblisUserLoggedin) this.router.navigate(['/homes']); this.isUserLoggedin = appconstants.gblisUserLoggedin; this.LoggedinUserName = appconstants.gblLoggedinUserName;
-      this.getAllCvdrole();
+   ngOnInit() {
+     this.getAllCvdrole();
+     appconstants.gblisUserLoggedin =true;
+      if (!appconstants.gblisUserLoggedin) this.router.navigate(['/homes']); 
+     this.isUserLoggedin = appconstants.gblisUserLoggedin; 
+     this.LoggedinUserName = appconstants.gblLoggedinUserName;
+      
    }
 
   CvdroleList: Cvdrole[];
