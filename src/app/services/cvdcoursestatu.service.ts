@@ -14,7 +14,7 @@ export class CvdcoursestatuService {
   constructor(private http: HttpClient) { }
 
  getAllCvdcoursestatu(): Observable<Cvdcoursestatu[]> {
- return this.http.get<Cvdcoursestatu[]>(appconstants.url + "Cvdcoursestatus")
+ return this.http.get<Cvdcoursestatu[]>(appconstants.url + "Cvdcoursestatuss")
  .pipe(
  tap(data => console.log(JSON.stringify(data))),
  catchError(this.handleError)
@@ -25,7 +25,7 @@ export class CvdcoursestatuService {
  if (id === 0) {
  return of(this.initializeCvdcoursestatu());
  }
- const url = appconstants.url + "Cvdcoursestatus/" + id;
+ const url = appconstants.url + "Cvdcoursestatuss/" + id;
  return this.http.get<Cvdcoursestatu>(url)
  .pipe(
  tap(data => console.log('getCvdcoursestatu: ' + JSON.stringify(data))),
@@ -35,7 +35,7 @@ export class CvdcoursestatuService {
 
  createCvdcoursestatu(objCvdcoursestatu: Cvdcoursestatu): Observable<Cvdcoursestatu> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- return this.http.post<Cvdcoursestatu>(appconstants.url + "Cvdcoursestatus/", objCvdcoursestatu, { headers })
+ return this.http.post<Cvdcoursestatu>(appconstants.url + "Cvdcoursestatuss/", objCvdcoursestatu, { headers })
  .pipe(
  tap(data => console.log('createCvdcoursestatu: ' + JSON.stringify(data))),
  catchError(this.handleError)
@@ -44,7 +44,7 @@ export class CvdcoursestatuService {
 
  updateCvdcoursestatu(objCvdcoursestatu: Cvdcoursestatu): Observable<Cvdcoursestatu> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- const url = appconstants.url + "Cvdcoursestatus/" + objCvdcoursestatu.id;
+ const url = appconstants.url + "Cvdcoursestatuss/" + objCvdcoursestatu.id;
  return this.http.put<Cvdcoursestatu>(url, objCvdcoursestatu, { headers })
  .pipe(
  tap(() => console.log('updateCvdcoursestatu: ' + objCvdcoursestatu.id)),
@@ -55,7 +55,7 @@ export class CvdcoursestatuService {
 
  deleteCvdcoursestatu(id: number): Observable<{}> {
  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
- const url = appconstants.url + "Cvdcoursestatus/" + id;
+ const url = appconstants.url + "Cvdcoursestatuss/" + id;
  return this.http.delete<Cvdcoursestatu>(url, { headers })
  .pipe(
  tap(data => console.log('deleteCvdcoursestatu: ' + id)),
