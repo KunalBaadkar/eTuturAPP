@@ -41,7 +41,9 @@ this.getAllCvduser();
     return this.CvdcourseList.find(r=>r.id===Id).Name;
   }
 
-
+goToLink(url: string){
+    window.open(url, "_blank");
+}
   
   CvdquestionList: Cvdquestion[];
   getAllCvdquestion() {
