@@ -1,6 +1,10 @@
 <div id="main" *ngIf="!isUserLoggedin">
-    <nav>
+    
+            <nav>  
           <ul>
+                <li>
+                   &nbsp;&nbsp;&nbsp;      <img src="../../assets/HackathonLogo.PNG" style="height:30px;width:200px" >&nbsp;&nbsp;&nbsp;
+                </li>
                 <li><a routerLinkActive='active' [routerLink]="['/homes']">Home</a>
                 </li>
                 <li><a routerLinkActive='active' [routerLink]="['/Contactus']">Contact us</a>
@@ -16,6 +20,9 @@
 <div id="main" *ngIf="isUserLoggedin">
     <nav>
           <ul>
+                  <li>
+                              &nbsp;&nbsp;&nbsp;      <img src="../../assets/HackathonLogo.PNG" style="height:30px;width:200px" >&nbsp;&nbsp;&nbsp;
+                           </li>
                 <li><a routerLinkActive='active' [routerLink]="['/home']">Home</a>
                 </li>
            
@@ -24,16 +31,16 @@
                       <a *ngIf="lclFProjroleId <= 1">Super Admin</a>
                       <ul class="nav-dropdown"  *ngIf="lclFProjroleId <= 1">
                                 <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdroles']">role</a>
+                                    [routerLink]="['/Cvdroles']">Role</a>
                                 </li>
                                 <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                      [routerLink]="['/Cvdscreens']">screen</a>
+                                      [routerLink]="['/Cvdscreens']">Screen</a>
                                 </li>
                                 <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdpermissions']">permission</a>
+                                    [routerLink]="['/Cvdpermissions']">Permission</a>
                               </li>
                                 <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                      [routerLink]="['/Cvdstatus']">status</a>
+                                      [routerLink]="['/Cvdstatus']">Status</a>
                                 </li>
                                 <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
                                       [routerLink]="['/Cvdtrainingtypes']">Trainingtype</a>
@@ -50,19 +57,19 @@
                                     [routerLink]="['/Cvdfaqs']">faq</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdclasses']">class</a>
+                                    [routerLink]="['/Cvdclasses']">Class</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdlevels']">level</a>
+                                    [routerLink]="['/Cvdlevels']">Level</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdsubscriptions']">subscription</a>
+                                    [routerLink]="['/Cvdsubscriptions']">Subscription</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdusers']">user</a>
+                                    [routerLink]="['/Cvdusers']">User</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdusersubscriptions']">usersubscription</a>
+                                    [routerLink]="['/Cvdusersubscriptions']">User Subscription</a>
                               </li>
 
                       </ul>
@@ -72,20 +79,20 @@
                       <a *ngIf="lclFProjroleId <= 3">Teacher</a>
                       <ul class="nav-dropdown" *ngIf="lclFProjroleId <= 3">
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdcourses']">course</a>
+                                    [routerLink]="['/Cvdcourses']">Course</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdcoursestatus']">coursestatus</a>
+                                    [routerLink]="['/Cvdcoursestatus']">Coursestatus</a>
                               </li>
-                             
+                              
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdoptions']">option</a>
-                              </li>
-                              <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdquestions']">question</a>
+                                    [routerLink]="['/Cvdoptions']">Option</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdtableofcontents']">tableofcontent</a>
+                                    [routerLink]="['/Cvdquestions']">Question</a>
+                              </li>
+                              <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+                                    [routerLink]="['/Cvdtableofcontents']">Tableofcontent</a>
                               </li>
 
                       </ul>
@@ -94,14 +101,14 @@
                   <li class="navelement">
                       <a *ngIf="lclFProjroleId <= 4">Student</a>
                       <ul class="nav-dropdown" *ngIf="lclFProjroleId <= 4">
-                         <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdlearnchecks']">learncheck</a>
+                        <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+                                    [routerLink]="['/Cvdlearnchecks']">Learncheck</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvddiscussions']">discussion</a>
+                                    [routerLink]="['/Cvddiscussions']">Discussion</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdfeedbacks']">feedback</a>
+                                    [routerLink]="['/Cvdfeedbacks']">Feedback</a>
                               </li>
 
                       </ul>
