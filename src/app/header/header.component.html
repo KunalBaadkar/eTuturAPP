@@ -5,6 +5,8 @@
          <li>
                <a [routerLink]="['/homes']">    &nbsp;&nbsp;&nbsp;    <img src="../../assets/HackathonLogo.PNG" style="height:30px;width:200px" >&nbsp;&nbsp;&nbsp;</a>
                 </li>
+            <li><a routerLinkActive='active' [routerLink]="['/homes']">Home</a>
+                </li>
                 <li><a routerLinkActive='active' [routerLink]="['/Contactus']">Contact us</a>
                 </li>
                 <button href="#" (click)="GoToLoginPage()" class="btn btn-primary">
@@ -21,7 +23,8 @@
          <li>
                <a [routerLink]="['/homes']">    &nbsp;&nbsp;&nbsp;    <img src="../../assets/HackathonLogo.PNG" style="height:30px;width:200px" >&nbsp;&nbsp;&nbsp;</a>
                 </li>
-    
+    <li><a routerLinkActive='active' [routerLink]="['/homes']">Homes</a>
+                </li>
                 <li class="navelement">
                       <a *ngIf="lclFProjroleId <= 1">Super Admin</a>
                       <ul class="nav-dropdown"  *ngIf="lclFProjroleId <= 1">
