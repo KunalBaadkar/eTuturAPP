@@ -51,15 +51,13 @@
                 <li class="navelement">
                       <a *ngIf="lclFProjroleId <= 2">Admin</a>
                       <ul class="nav-dropdown" *ngIf="lclFProjroleId <= 2">
-                              <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdfaqs']">FAQs</a>
+                                <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+                                    [routerLink]="['/Cvdlevels']">Level</a>
                               </li>
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
                                     [routerLink]="['/Cvdclasses']">Class</a>
                               </li>
-                              <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-                                    [routerLink]="['/Cvdlevels']">Level</a>
-                              </li>
+                            
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
                                     [routerLink]="['/Cvdsubscriptions']">Subscription</a>
                               </li>
@@ -69,7 +67,9 @@
                               <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
                                     [routerLink]="['/Cvdusersubscriptions']">UserSubscription</a>
                               </li>
-
+                              <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+                                    [routerLink]="['/Cvdfaqs']">FAQs</a>
+                              </li>
                       </ul>
                 </li>
 
